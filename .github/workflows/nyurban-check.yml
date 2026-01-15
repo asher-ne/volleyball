@@ -27,4 +27,4 @@ jobs:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           TARGET_GYM: ${{ secrets.TARGET_GYM }}
         run: |
-          python check_nyurban_next_week.py
+          python import_requests.py
