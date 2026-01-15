@@ -11,10 +11,7 @@ DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "").strip()
 
 # Optional: narrow to a specific gym substring (leave blank for any gym)
 TARGET_GYM = os.getenv("TARGET_GYM", "").strip()
-def main():
-    print("DEBUG webhook set:", bool(DISCORD_WEBHOOK_URL))
-    send_discord(DISCORD_WEBHOOK_URL, "✅ Sanity test: message from GitHub Actions (NYUrban bot).")
-    return
+
 
 # Allowed skill levels (case-insensitive contains checks)
 ALLOWED_LEVELS = ["beginner", "advanced beginner", "intermediate"]
@@ -149,6 +146,9 @@ def main():
         print("Sent Discord notification.")
     else:
         print("No purchasable spots found in the next 7 days (within allowed levels).")
+def main():
+    send_discord(DISCORD_WEBHOOK_URL, "✅ Sanity test: webhook works (NYUrban bot).")
+    return
 
 if __name__ == "__main__":
     main()
