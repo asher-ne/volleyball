@@ -12,10 +12,8 @@ DISCORD_WEBHOOK_URL = os.getenv("DISCORD_WEBHOOK_URL", "").strip()
 # Optional: narrow to a specific gym substring (leave blank for any gym)
 TARGET_GYM = os.getenv("TARGET_GYM", "").strip()
 def main():
-    send_discord(
-        DISCORD_WEBHOOK_URL,
-        "✅ Sanity test: NYUrban bot successfully ran from GitHub Actions."
-    )
+    print("DEBUG webhook set:", bool(DISCORD_WEBHOOK_URL))
+    send_discord(DISCORD_WEBHOOK_URL, "✅ Sanity test: message from GitHub Actions (NYUrban bot).")
     return
 
 # Allowed skill levels (case-insensitive contains checks)
