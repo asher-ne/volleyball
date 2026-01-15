@@ -25,6 +25,6 @@ jobs:
       - name: Run checker
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-          TARGET_GYM: ${{ secrets.TARGET_GYM }}
+          
         run: |
           python import_requests.py
