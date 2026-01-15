@@ -1,0 +1,30 @@
+name: NYUrban Open Gym Checker
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # every hour (UTC)
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+
+      - name: Run checker
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TARGET_GYM: ${{ secrets.TARGET_GYM }}
+        run: |
+          python check_nyurban_next_week.py
