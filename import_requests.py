@@ -136,7 +136,7 @@ def main():
 
     if matches:
         # Build a single concise message
-        lines = ["🏐 **NY Urban Open Gym available in the next 7 days:**"]
+        lines = ["🏐 **NY Urban Open Gym available in the next 14 days:**"]
         for m in matches[:10]:  # avoid spam if tons are open
             lines.append(f"- **{m['raw_date']}** | {m['gym']} | {m['level']} | {m['time']} | {m['fee']} | {m['status']}")
         lines.append(f"\nLink: {URL}")
@@ -145,7 +145,7 @@ def main():
         send_discord(DISCORD_WEBHOOK_URL, msg)
         print("Sent Discord notification.")
     else:
-        print("No purchasable spots found in the next 7 days (within allowed levels).")
+        print("No purchasable spots found in the next 14 days (within allowed levels).")
 
 
 if __name__ == "__main__":
