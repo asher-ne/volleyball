@@ -94,7 +94,7 @@ def send_discord(webhook_url: str, message: str):
 
 def main():
     today = date.today()
-    end = today + timedelta(days=7)
+    end = today + timedelta(days=14)
 
     html = fetch_html()
     soup = BeautifulSoup(html, "html.parser")
